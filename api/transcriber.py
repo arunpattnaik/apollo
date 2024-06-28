@@ -35,8 +35,8 @@ class Transcriber:
 
             messages.append({"role": "assistant", "content": output})
             try:
-                self.scene_transcriptions = list(json.loads(output))
-                return self.scene_transcriptions
+                self.scenes = list(json.loads(output))
+                return self.scenes
             except Exception as e:
                 try:
                     self.populate_transcriptions_array(output)
@@ -49,4 +49,4 @@ if __name__ == "__main__":
     topic = input("Enter user topic: ")
     transcriber = Transcriber()
     asyncio.run(transcriber.generate(topic, "happy"))
-    logger.info(transcriber.scene_transcriptions)
+    logger.info(transcriber.scenes)
