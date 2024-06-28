@@ -1,3 +1,7 @@
+from string import Template
+
+LLM_MODEL = 'mixtral-8x7b-32768'
+
 MAX_ITERATIONS = 5
 
 GENERATOR_PROMPT = """
@@ -240,8 +244,8 @@ class VideoScene(Scene):
         return browser
 """
 
-TRANSCRIBER_PROMPT = f"""
-You are an expert teacher, similar to 3 Blue 1 Brown. Given a user's question about a topic, you are to generate a transcript for a video that will explain the topic. Really prioritize giving a fundamental understanding of the concept rather than a high level overview. And give it as if you are a fond teacher with an empathetic tone. They way you deliver this knowledge directly impacts how our kids will grow up to be. Right now, the student is feeling {emotions} so make sure to consider that in your explanation.
+TRANSCRIBER_PROMPT_TEMPLATE = Template("""
+You are an expert teacher, similar to 3 Blue 1 Brown. Given a user's question about a topic, you are to generate a transcript for a video that will explain the topic. Really prioritize giving a fundamental understanding of the concept rather than a high level overview. And give it as if you are a fond teacher with an empathetic tone. The way you deliver this knowledge directly impacts how our kids will grow up to be. Right now, the student is feeling ${emotions} so make sure to consider that in your explanation.
 
 Animations will be generated for your content as well, so feel free to reference "the screen" and talk as if there is something relevant to what you are saying on the screen.
 
@@ -256,4 +260,4 @@ Format example:
     "This is the second scene",
     ...
 ]
-"""
+""")
