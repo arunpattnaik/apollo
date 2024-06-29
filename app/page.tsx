@@ -23,13 +23,14 @@ export default function Home() {
   };
 
   return (
-    <main className="w-full h-screen max-h-screen flex items-center justify-center">
+    <main className="w-full px-10 h-screen max-h-screen flex items-center justify-center">
       <div className="flex flex-col space-y-6 mb-24">
         <h2 className="text-3xl font-semibold">
           What do you want to learn today?
         </h2>
         <form onSubmit={handleSubmit}>
           <Input
+            autoFocus
             size="lg"
             className="w-full max-w-xl"
             placeholder="Enter your topic"
