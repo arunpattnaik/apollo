@@ -1,4 +1,4 @@
 import os
-from groq import AsyncGroq
+from openai import AsyncOpenAI
 
-client = AsyncGroq(api_key=os.getenv("GROQ_API_KEY"))
+client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
