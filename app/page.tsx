@@ -10,14 +10,20 @@ export default function Home() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch(`/api/python`);
+      const response = await fetch(`/api/generate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: value }),
+      });
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error('Network response was not ok');
       }
       const data = await response.json();
       console.log(data);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error('Error fetching data:', error);
     }
     setValue("");
   };
