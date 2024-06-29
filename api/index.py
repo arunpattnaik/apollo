@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -38,7 +39,9 @@ async def generate(request: VideoRequest):
 
 @app.get("/api/videos/{video_id}")
 async def get_video(video_id: str):
-    video_path = f"generated/{video_id}/final_video.mp4"
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(current_directory, ".."))
+    video_path = os.path.join(project_root, "generated", video_id, "final_video.mp4")
     def iterfile():
         with open(video_path, mode="rb") as file_like:
             yield from file_like
