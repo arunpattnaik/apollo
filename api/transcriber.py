@@ -2,9 +2,9 @@ import json
 import asyncio
 import os
 
-from client import client
-from logger import logger
-from config import LLM_MODEL, TRANSCRIBER_PROMPT_TEMPLATE, MAX_ITERATIONS
+from api.client import client
+from api.logger import logger
+from api.config import LLM_MODEL, TRANSCRIBER_PROMPT_TEMPLATE, MAX_ITERATIONS
 
 class Transcriber:
     def __init__(self):

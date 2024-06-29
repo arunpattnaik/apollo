@@ -3,11 +3,11 @@ import os
 import asyncio
 import subprocess
 
-from client import client
-from tts import speech_client
-from logger import logger
+from api.client import client
+from api.tts import speech_client
+from api.logger import logger
 from dotenv import load_dotenv
-from config import GENERATOR_PROMPT, MAX_ITERATIONS, PATH, VOICE_ID, LLM_MODEL
+from api.config import GENERATOR_PROMPT, MAX_ITERATIONS, PATH, VOICE_ID, LLM_MODEL
 from moviepy.editor import VideoFileClip, concatenate_videoclips, AudioFileClip, CompositeAudioClip, ImageClip, CompositeVideoClip
 from moviepy.audio.AudioClip import AudioClip
 
