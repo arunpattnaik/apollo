@@ -1,5 +1,7 @@
 from string import Template
 
+PATH = "generated"
+
 LLM_MODEL = 'mixtral-8x7b-32768'
 
 MAX_ITERATIONS = 5
