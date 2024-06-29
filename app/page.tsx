@@ -7,8 +7,18 @@ import { FormEvent, useState } from "react";
 export default function Home() {
   const [value, setValue] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    try {
+      const response = await fetch(`/api/python`);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
     setValue("");
   };
 
