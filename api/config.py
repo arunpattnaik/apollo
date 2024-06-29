@@ -3,6 +3,7 @@ from string import Template
 PATH = "generated"
 
 LLM_MODEL = 'mixtral-8x7b-32768'
+VOICE_ID = "7d21119e-bb5d-4416-8164-9170ec4952c2"
 
 MAX_ITERATIONS = 5
 
