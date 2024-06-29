@@ -1,10 +1,42 @@
 "use client";
-import { Button } from "@nextui-org/react";
+import { cn } from "@/lib/utils";
+import { Input } from "@nextui-org/react";
+import { SendHorizontal } from "lucide-react";
+import { FormEvent, useState } from "react";
 
 export default function Home() {
+  const [value, setValue] = useState("");
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setValue("");
+  };
+
   return (
-    <main>
-      <Button>Press me</Button>
+    <main className="w-full h-screen max-h-screen flex items-center justify-center">
+      <div className="flex flex-col space-y-6">
+        <h2 className="text-2xl font-semibold">
+          What do you want to learn today?
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <Input
+            className="w-full max-w-xl"
+            placeholder="Enter your topic"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            endContent={
+              <SendHorizontal
+                onClick={handleSubmit}
+                className={cn(
+                  value
+                    ? "cursor-pointer"
+                    : "cursor-not-allowed text-neutral-400",
+                )}
+              />
+            }
+          />
+        </form>
+      </div>
     </main>
   );
 }
