@@ -36,7 +36,7 @@ export default function Home() {
       <div className="flex flex-col space-y-6 mb-24">
         {videoId ? (
           <video
-            src={`http://localhost:8000/api/videos/2d1e6a13-b9c4-4dff-b29e-60a53daea9be/`}
+            src={`http://localhost:8000/api/videos/${videoId}/`}
             className="w-full h-full rounded-xl"
             controls
             autoPlay
