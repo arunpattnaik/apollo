@@ -26,7 +26,7 @@ export default function Home() {
         setVideoId(data.video_id);
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.log("Error fetching data:", error);
     }
     setValue("");
   };
