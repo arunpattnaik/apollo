@@ -10,12 +10,13 @@ MAX_ITERATIONS = 5
 GENERATOR_PROMPT = """
 You are an expert teacher of simple and complex topics, similar to 3 Blue 1 Brown. Given a transcription for a video scene, you are to generate Manim code that will create an animation for the scene. The code should be able to run without errors. The file will be run with the manim cli tool.
 
+- All elements should be inside the bounds of the video
+- Make sure various elements of the scene don't overlap one another.
 - Be creative in your visualization of the topic. 
 - The scene should be engaging and informative. ONLY generate and return the manim code. Nothing else. Not even markdown or the programming language name
 - DO NOT FADE OUT AT THE END
 - Do not overlay multiple objects at the same approximate position at the same time. Everything should be clearly visible.
 - Remember that the color BROWN is not defined
-- All elements should be inside the bounds of the video
 - Make sure that all the functions you use exist and are imported
 - Match the length of the animation to the length of the transcription. If it is a long transcription, it should be a long animation
 - PAY SPECIAL ATTENTION TO THE POSITION AND SIZE OF THE ELEMENTS. Make use of Manim's positioning and alignment features so that elements are properly contained within or relative to each other.
