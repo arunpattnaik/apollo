@@ -1,4 +1,8 @@
-import os
-from openai import AsyncOpenAI
-
-client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+from anthropic import AsyncAnthropic
+class AsyncAnthropicClient:
+    def __init__(self, api_key: str):
+        self.chat = AsyncAnthropic(api_key=api_key)
+        
+client = AsyncAnthropicClient(
+    api_key=os.getenv("ANTHROPIC_API_KEY"),
+)
