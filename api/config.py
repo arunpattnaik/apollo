@@ -2,7 +2,7 @@ from string import Template
 
 PATH = "generated"
 
-LLM_MODEL = 'claude-3-5-sonnet-20240620'
+LLM_MODEL = 'gpt-4o'
 VOICE_ID = "7d21119e-bb5d-4416-8164-9170ec4952c2"
 
 MAX_ITERATIONS = 5

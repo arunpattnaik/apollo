@@ -55,7 +55,9 @@ async def list_videos():
     generated_folder = os.path.join(project_root, "generated")
 
     try:
-        folder_names = [name for name in os.listdir(generated_folder) if os.path.isdir(os.path.join(generated_folder, name))]
+        folder_paths = [os.path.join(generated_folder, name) for name in os.listdir(generated_folder) if os.path.isdir(os.path.join(generated_folder, name))]
+        folder_paths.sort(key=os.path.getctime)
+        folder_names = [os.path.basename(path) for path in folder_paths]
     except FileNotFoundError:
         folder_names = []
 
