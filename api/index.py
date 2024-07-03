@@ -47,3 +47,16 @@ async def get_video(video_id: str):
             yield from file_like
 
     return StreamingResponse(iterfile(), media_type="video/mp4")
+
+@app.get("/api/videos")
+async def list_videos():
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(current_directory, ".."))
+    generated_folder = os.path.join(project_root, "generated")
+
+    try:
+        folder_names = [name for name in os.listdir(generated_folder) if os.path.isdir(os.path.join(generated_folder, name))]
+    except FileNotFoundError:
+        folder_names = []
+
+    return {"folders": folder_names}
